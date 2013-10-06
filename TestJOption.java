@@ -4,20 +4,19 @@ class Cria_JOptionPane {
  public static void main(String[] args) {
     int cond = 1;
     int pos = 0;
-    int op;
     String exibe = "";
     Animal[] cadastro = new Animal[5];
 
     String[] animais = {"Cao", "Gato"};
 
     do {
-      op = Integer.parseInt(JOptionPane.showInputDialog(
+      Integer opcaoEscolhida = Integer.parseInt(JOptionPane.showInputDialog(
           "Controle de Animais\n\n" +
           "1 - Cadastrar animal\n" +
           "2 - Listar animais\n" +
           "3 - Sair\n"));
 
-      switch (op) {
+      switch (opcaoEscolhida) {
         case 1:
           if (pos < 5) {
             String animalEscolhido = (String)JOptionPane.showInputDialog(
@@ -54,7 +53,12 @@ class Cria_JOptionPane {
                      "\nSom emitido: " + cadastro[i].exibeSom() +
                      "\n______________________________\n";
           }
-          JOptionPane.showMessageDialog(null, exibe);
+          if (pos == 0) {
+            JOptionPane.showMessageDialog(
+                null, "Nenhum animal foi cadastrado ainda.");
+          } else {
+            JOptionPane.showMessageDialog(null, exibe);
+          }
           break;
 
         case 3:

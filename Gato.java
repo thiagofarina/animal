@@ -1,7 +1,8 @@
 class Gato extends Animal {
         private String mMia;
 
-        public Gato() {
+        public Gato(String dataNascimento, Integer identidade, String raca) {
+                super(dataNascimento, identidade, raca);
                 mMia = "Mia";
         }
 

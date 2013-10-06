@@ -4,17 +4,16 @@ class Cria_JOptionPane {
  public static void main(String[] args) {
     int cond = 1;
     int pos = 0;
-    String exibe = "";
     Animal[] cadastro = new Animal[5];
-
     String[] animais = {"Cao", "Gato"};
 
     do {
       Integer opcaoEscolhida = Integer.parseInt(JOptionPane.showInputDialog(
           "Controle de Animais\n\n" +
           "1 - Cadastrar animal\n" +
-          "2 - Listar animais\n" +
-          "3 - Sair\n"));
+          "2 - Remover animal\n" +
+          "3 - Listar animais\n" +
+          "4 - Sair\n"));
 
       switch (opcaoEscolhida) {
         case 1:
@@ -45,13 +44,22 @@ class Cria_JOptionPane {
           break;
 
         case 2:
-          exibe = "";
+          Integer index = Integer.parseInt(
+              JOptionPane.showInputDialog(null,
+                                          "Qual animal voce deseja remove?",
+                                          "Animal",
+                                          JOptionPane.QUESTION_MESSAGE));
+          // Implement me!
+
+          break;
+        case 3:
+          String exibe = "";
           for (int i = 0; i < pos; i++) {
-            exibe += "Raca: " + cadastro[i].getRaca() +
-                    "\nData de nascimento: " + cadastro[i].getDataNascimento() +
-                     "\nIdentidade: " + cadastro[i].getIdentidade() +
-                     "\nSom emitido: " + cadastro[i].exibeSom() +
-                     "\n______________________________\n";
+            exibe += "Data de nascimento: " + cadastro[i].getDataNascimento() + "\n" +
+                     "Identidade: " + cadastro[i].getIdentidade() + "\n" +
+                     "Raca: " + cadastro[i].getRaca() + "\n" +
+                     "Som emitido: " + cadastro[i].exibeSom() + "\n" +
+                     "______________________________\n";
           }
           if (pos == 0) {
             JOptionPane.showMessageDialog(
@@ -61,7 +69,7 @@ class Cria_JOptionPane {
           }
           break;
 
-        case 3:
+        case 4:
           cond = 0;
           break;
 

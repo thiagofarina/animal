@@ -19,38 +19,29 @@ class Cria_JOptionPane {
 
       switch (op) {
         case 1:
-          String animalEscolhido = (String)JOptionPane.showInputDialog(
-              null,
-              "Qual animal voce deseja cadastrar?",
-              "Animal",
-              JOptionPane.QUESTION_MESSAGE,
-              null,
-              animais,
-              animais[0]);
-          if (animalEscolhido == "Cao") {
-            if (pos < 5) {
-              cadastro[pos] = new Cao(
-                  JOptionPane.showInputDialog("Digite a data de nascimento:"),
-                  Integer.parseInt(
-                      JOptionPane.showInputDialog("Digite a identidade:")),
-                  JOptionPane.showInputDialog("Digite a raca:"));
-              pos++;
-
-            } else {
-              JOptionPane.showMessageDialog(
-                  null, "Nao posso mais adicionar registros.");
-            }
-          } else {
           if (pos < 5) {
-            cadastro[pos] = new Gato(
-                JOptionPane.showInputDialog("Digite a data de nascimento:"),
-                Integer.parseInt(
-                    JOptionPane.showInputDialog("Digite a identidade:")),
-                JOptionPane.showInputDialog("Digite a raca:"));
+            String animalEscolhido = (String)JOptionPane.showInputDialog(
+                null,
+                "Qual animal voce deseja cadastrar?",
+                "Animal",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                animais,
+                animais[0]);
+            String dataNascimento =
+                JOptionPane.showInputDialog("Digite a data de nascimento:");
+            Integer identidade = Integer.parseInt(
+                JOptionPane.showInputDialog("Digite a identidade:"));
+            String raca = JOptionPane.showInputDialog("Digite a raca:");
+            if (animalEscolhido == "Cao") {
+              cadastro[pos] = new Cao(dataNascimento, identidade, raca);
+            } else {
+              cadastro[pos] = new Gato(dataNascimento, identidade, raca);
+            }
             pos++;
           } else {
-            JOptionPane.showMessageDialog(null, "Nao posso mais adicionar registros.");
-          }
+            JOptionPane.showMessageDialog(
+                null, "Nao posso mais adicionar registros.");
           }
           break;
 

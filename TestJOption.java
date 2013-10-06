@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 class Cria_JOptionPane {
  public static void main(String[] args) {
-    int cond = 1;
+    boolean encerrar = false;
     int pos = 0;
     Animal[] cadastro = new Animal[5];
     String[] animais = {"Cao", "Gato"};
@@ -70,12 +70,12 @@ class Cria_JOptionPane {
           break;
 
         case 4:
-          cond = 0;
+          encerrar = true;
           break;
 
         default:
             JOptionPane.showMessageDialog(null, "Opcao invalida.");
       }
-    } while (cond == 1);
+    } while (!encerrar);
   }
 }

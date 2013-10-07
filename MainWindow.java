@@ -1,23 +1,42 @@
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
-class MainWindow {
+class MainWindow extends JFrame {
+        public MainWindow() {
+                CriarUI();
+        }
+
+        private void CriarUI() {
+           JPanel panel = new JPanel();
+           getContentPane().add(panel);
+
+           panel.setLayout(null);
+
+           JLabel label = new JLabel("<html>Menu de opcoes: <br><br>" +
+                           "<p>1- Cadastrar animal" +
+                           "<p>2- Remover animal" +
+                           "<p>3- Listar animais" +
+                           "<p>4- Sair" +
+                           "</html>");
+           label.setBounds(10, 10, 300, 100);
+
+           panel.add(label);
+
+           setTitle("Controle de Animais");
+           setSize(300, 200);
+           setLocationRelativeTo(null);
+           setDefaultCloseOperation(EXIT_ON_CLOSE);
+        }
+
         public static void main(String[] args) {
-                JFrame frame = new JFrame("Test");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-                // get the screen size as a java dimension
-                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-                // get 2/3 of the height, and 2/3 of the width
-                int height = screenSize.height * 2 / 3;
-                int width = screenSize.width * 2 / 3;
-
-                // set the jframe height and width
-                frame.setPreferredSize(new Dimension(width, height));
-
-                frame.pack();
-                frame.setVisible(true);
+          SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+              MainWindow window = new MainWindow();
+              window.setVisible(true);
+            }
+          });
         }
 }

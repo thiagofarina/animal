@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 class MainWindow extends JFrame {
+        Animal[] mAnimaisCadastrados = new Animal[5];
+
         public MainWindow() {
                 CriarUI();
         }
